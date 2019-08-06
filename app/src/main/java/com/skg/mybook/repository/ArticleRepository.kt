@@ -11,8 +11,10 @@ import retrofit2.Response
 class ArticleRepository {
     private var articleService: ArticleService ? = null
     init {
+
         articleService = RetrofitService.create(ArticleService::class.java)
     }
+
     fun getAllArticle(country: String, category:String): MutableLiveData<ArticleList>{
         val data = MutableLiveData<ArticleList>()
         articleService?.getArticle(country,category)?.enqueue(object : Callback<ArticleList>{

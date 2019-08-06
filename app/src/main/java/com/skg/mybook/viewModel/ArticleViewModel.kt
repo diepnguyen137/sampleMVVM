@@ -1,4 +1,4 @@
-package com.skg.mybook.view
+package com.skg.mybook.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,11 +12,11 @@ class ArticleViewModel: ViewModel() {
     init {
         if(repository == null){
             repository = ArticleRepository()
-            allArticles = repository!!.getAllArticle("us","business")
         }
     }
 
     fun getAllArticle(): MutableLiveData<ArticleList>? {
+        allArticles = repository!!.getAllArticle("us","business")
         return allArticles
     }
 }

@@ -11,6 +11,7 @@ buildscript {
     ext.retrofit = '2.6.1'
     ext.okhttp = '4.0.1'
     ext.extentions_version = '2.0.0'
+    ext.nav_version = "2.1.0-beta02"
 
     repositories {
         google()

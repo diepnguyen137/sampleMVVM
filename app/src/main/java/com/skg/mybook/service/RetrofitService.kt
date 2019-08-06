@@ -11,11 +11,13 @@ class RetrofitService {
     companion object {
         private const val BASE_URL = "https://newsapi.org/v2/"
         private const val API_KEY = "e2c2131da49d443480e115d6b3b1d171"
+
         private var httpClient = OkHttpClient.Builder().addInterceptor(object : Interceptor{
             override fun intercept(chain: Interceptor.Chain): Response {
                 val original = chain.request()
                 val request: Request = original.newBuilder()
-                    .header("X-Api-Key",API_KEY).build()
+                    .header("X-Api-Key",API_KEY)
+                    .build()
                 return chain.proceed(request)
             }
         })
