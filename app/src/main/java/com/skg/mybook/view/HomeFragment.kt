@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     }
 
     private lateinit var viewModel: ArticleViewModel
-    private lateinit var adapter : ArticleAdapter
+    private lateinit var articleAdapter : ArticleAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
 
 
@@ -36,13 +36,14 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewManager = LinearLayoutManager(activity)
         viewModel = ViewModelProviders.of(this).get(ArticleViewModel::class.java)
-        home_list.apply {
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = this.adapter
-        }
+
         viewModel.getAllArticle()?.observe(this, Observer { articles ->
-            adapter = ArticleAdapter(activity!!,articles.articles)
+            articleAdapter = ArticleAdapter(activity!!,articles.articles)
+            home_list.apply {
+                setHasFixedSize(true)
+                layoutManager = viewManager
+                adapter = articleAdapter
+            }
         })
     }
 
