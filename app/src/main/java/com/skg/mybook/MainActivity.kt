@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.skg.mybook.view.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.Intent
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +20,21 @@ class MainActivity : AppCompatActivity() {
 
         bottom_navi_view.setOnNavigationItemSelectedListener { p0 ->
             when (p0.itemId) {
-                R.id.nav_home -> TODO()
-                R.id.nav_save -> TODO()
-                R.id.nav_profile -> TODO()
+                R.id.nav_home -> showHome()
+                R.id.nav_save -> showSave()
+                R.id.nav_profile -> showProfile()
             }
             true
         }
+    }
+
+    private fun showProfile() {
+
+    }
+
+    private fun showSave() {
+    }
+
+    private fun showHome() {
     }
 }

@@ -10,11 +10,15 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skg.mybook.R
+import com.skg.mybook.model.Article
 import com.skg.mybook.view.adapter.ArticleAdapter
 import com.skg.mybook.viewModel.ArticleViewModel
 import kotlinx.android.synthetic.main.home_fragment.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ArticleAdapter.ItemClickListener {
+    override fun onItemClicked(article: Article, position: Int) {
+
+    }
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -38,7 +42,7 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ArticleViewModel::class.java)
 
         viewModel.getAllArticle()?.observe(this, Observer { articles ->
-            articleAdapter = ArticleAdapter(activity!!,articles.articles)
+            articleAdapter = ArticleAdapter(activity!!,articles.articles,this)
             home_list.apply {
                 setHasFixedSize(true)
                 layoutManager = viewManager

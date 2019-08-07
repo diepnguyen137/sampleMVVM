@@ -11,7 +11,6 @@ import retrofit2.Response
 class ArticleRepository {
     private var articleService: ArticleService ? = null
     init {
-
         articleService = RetrofitService.create(ArticleService::class.java)
     }
 
@@ -19,7 +18,7 @@ class ArticleRepository {
         val data = MutableLiveData<ArticleList>()
         articleService?.getArticle(country,category)?.enqueue(object : Callback<ArticleList>{
             override fun onFailure(call: Call<ArticleList>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
             override fun onResponse(call: Call<ArticleList>, response: Response<ArticleList>) {
                 data.value = response.body()
