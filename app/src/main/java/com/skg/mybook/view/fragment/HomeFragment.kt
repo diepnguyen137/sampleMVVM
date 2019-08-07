@@ -1,4 +1,4 @@
-package com.skg.mybook.view
+package com.skg.mybook.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -42,7 +42,7 @@ class HomeFragment : Fragment(), ArticleAdapter.ItemClickListener {
         viewModel = ViewModelProviders.of(this).get(ArticleViewModel::class.java)
 
         viewModel.getAllArticle()?.observe(this, Observer { articles ->
-            articleAdapter = ArticleAdapter(activity!!,articles.articles,this)
+            articleAdapter = ArticleAdapter(articles.articles,this)
             home_list.apply {
                 setHasFixedSize(true)
                 layoutManager = viewManager

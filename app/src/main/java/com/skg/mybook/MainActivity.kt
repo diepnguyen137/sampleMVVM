@@ -2,10 +2,8 @@ package com.skg.mybook
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.skg.mybook.view.HomeFragment
+import com.skg.mybook.view.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import android.content.Intent
-
 
 
 class MainActivity : AppCompatActivity() {

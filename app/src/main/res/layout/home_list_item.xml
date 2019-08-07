@@ -5,9 +5,6 @@
     <data>
         <variable name="article"
                   type="com.skg.mybook.model.Article"/>
-        <variable
-                name="imageUrl"
-                type="String" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/item_container"
@@ -54,7 +51,8 @@
                 android:layout_marginBottom="8dp"
                 android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:articleImage="@{imageUrl}"/>
+                app:loadImage="@{article.urlToImage}"
+              />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
