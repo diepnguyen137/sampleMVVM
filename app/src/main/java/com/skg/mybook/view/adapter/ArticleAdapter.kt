@@ -13,7 +13,7 @@ class ArticleAdapter(articles: List<Article>, listener: ItemClickListener) :
     var listener: ItemClickListener = listener
 
     interface ItemClickListener {
-        fun onItemClicked(article: Article, position: Int)
+        fun onItemClicked(article: Article)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
@@ -26,15 +26,16 @@ class ArticleAdapter(articles: List<Article>, listener: ItemClickListener) :
         return articles.size
     }
 
-    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) = holder.bind(articles[position])
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) = holder.bind(articles[position], listener)
 
     class ArticleViewHolder(itemView: View, binding: HomeListItemBinding) : RecyclerView.ViewHolder(itemView) {
         private var dataBinding: HomeListItemBinding ?= null
         init {
             dataBinding = binding
         }
-        fun bind(article: Article) {
+        fun bind(article: Article, listener: ItemClickListener) {
             dataBinding?.article = article
+            dataBinding?.itemContainer?.setOnClickListener { listener.onItemClicked(article) }
             dataBinding?.executePendingBindings()
         }
 
