@@ -10,7 +10,6 @@ import com.skg.mybook.model.Article
 @Database(entities = [Article::class], version = 2)
 abstract class ArticleRoom: RoomDatabase(){
     abstract fun articleDao(): ArticleDao
-
     companion object {
         @Volatile
         private var INSTANCE: ArticleRoom? = null

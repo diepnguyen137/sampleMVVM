@@ -1,6 +1,7 @@
 package com.skg.mybook
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -8,7 +9,6 @@ import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.viewModel.ArticleSharedViewModel
 import com.skg.mybook.viewModel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sharedviewModel: ArticleSharedViewModel

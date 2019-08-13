@@ -21,6 +21,12 @@ import com.skg.mybook.viewModel.ArticleViewModel
  *
  */
 class DetailFragment : Fragment() {
+    private lateinit var sharedViewModel: ArticleSharedViewModel
+    private lateinit var viewModel: ArticleViewModel
+
+    private lateinit var  binding: FragmentDetailBinding
+    private lateinit var mArticle: Article
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,11 +36,6 @@ class DetailFragment : Fragment() {
             inflater, R.layout.fragment_detail, container, false);
         return binding.root
     }
-    private lateinit var sharedViewModel: ArticleSharedViewModel
-    private lateinit var viewModel: ArticleViewModel
-
-    lateinit var  binding: FragmentDetailBinding
-    lateinit var mArticle: Article
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

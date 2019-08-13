@@ -33,7 +33,8 @@ class ArticleViewModel(context: Context) : ViewModel() {
         return repository!!.getSavedArticle()
     }
     /**
-     * We want the insert() method to be called away from the main thread, so we're launching a new coroutine, based on the             coroutine scope defined previously. Because we're doing a database operation, we're using the IO Dispatcher.
+     * We want the insert() method to be called away from the main thread, so we're launching a new coroutine, based on the
+     * coroutine scope defined previously. Because we're doing a database operation, we're using the IO Dispatcher.
      */
 
     fun saveArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {

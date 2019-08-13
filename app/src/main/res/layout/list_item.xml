@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="keyword" type="String"/>
+    </data>
+    <LinearLayout
+            android:id="@+id/item_container"
+                  android:orientation="vertical"
+                  android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:background="@drawable/item_shape"
+                  android:layout_margin="5dp">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:text="@{keyword}"
+                  android:textColor="@color/cardview_light_background"
+                  android:padding="5dp"
+                  android:gravity="center"/>
+
+    </LinearLayout>
+</layout>

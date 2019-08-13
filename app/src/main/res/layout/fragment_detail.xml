@@ -68,10 +68,7 @@
                       android:textColor="@color/cardview_light_background"
                       android:textSize="18dp"
                       android:padding="10dp"
-
             />
         </LinearLayout>
     </ScrollView>
-
-
 </layout>
