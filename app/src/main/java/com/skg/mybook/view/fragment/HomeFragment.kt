@@ -16,7 +16,6 @@ import com.skg.mybook.model.Article
 import com.skg.mybook.view.adapter.ArticleAdapter
 import com.skg.mybook.view.adapter.KeyWordAdapter
 import com.skg.mybook.viewModel.ArticleSharedViewModel
-import com.skg.mybook.viewModel.ArticleViewModel
 import com.skg.mybook.viewmodel.KeyWordViewModel
 import kotlinx.android.synthetic.main.home_fragment.*
 
@@ -30,7 +29,6 @@ class HomeFragment : Fragment(), ArticleAdapter.ItemClickListener {
 
     private lateinit var articleAdapter : ArticleAdapter
     private lateinit var keyWordAdapter: KeyWordAdapter
-
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
@@ -44,7 +42,6 @@ class HomeFragment : Fragment(), ArticleAdapter.ItemClickListener {
         super.onCreate(savedInstanceState)
         keyWordviewModel = ViewModelProviders.of(this)[KeyWordViewModel::class.java]
         keyWordAdapter = KeyWordAdapter(activity!!)
-
         sharedviewModel = activity?.run {
             ViewModelProviders.of(this)[ArticleSharedViewModel::class.java]
         } ?: throw Exception("Invalid Activity")

@@ -1,11 +1,14 @@
 package com.skg.mybook.repository
 
+import android.content.Context
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.skg.mybook.dao.ArticleDao
 import com.skg.mybook.model.Article
+import com.skg.mybook.model.Article1
 import com.skg.mybook.model.ArticleList
+import com.skg.mybook.model.Source
 import com.skg.mybook.service.ArticleService
 import com.skg.mybook.service.RetrofitService
 import retrofit2.Call
@@ -15,7 +18,6 @@ import retrofit2.Response
 class ArticleRepository(articleDao: ArticleDao) {
     private var articleService: ArticleService? = null
     private var articleDao: ArticleDao = articleDao
-
     init {
         articleService = RetrofitService.create(ArticleService::class.java)
     }
@@ -24,7 +26,6 @@ class ArticleRepository(articleDao: ArticleDao) {
         val data = MutableLiveData<ArticleList>()
         articleService?.getArticle(country, category)?.enqueue(object : Callback<ArticleList> {
             override fun onFailure(call: Call<ArticleList>, t: Throwable) {
-
             }
 
             override fun onResponse(call: Call<ArticleList>, response: Response<ArticleList>) {

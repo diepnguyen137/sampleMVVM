@@ -6,24 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skg.mybook.R
+import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.model.Article
 import com.skg.mybook.view.adapter.ArticleAdapter
 import com.skg.mybook.viewModel.ArticleViewModel
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
+import kotlinx.android.synthetic.main.fragment_save.*
 /**
  * A simple [Fragment] subclass.
  *
  */
 class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
     override fun onItemClicked(article: Article) {
-
     }
 
     private lateinit var viewModel: ArticleViewModel
@@ -40,20 +38,22 @@ class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel =  ViewModelProviders.of(this)[ArticleViewModel::class.java]
+        viewModel = ViewModelProviders.of(this, BaseViewModelFactory {
+            ArticleViewModel(activity!!)
+        }).get(ArticleViewModel::class.java)
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewManager = LinearLayoutManager(activity)
-//        viewModel.getSavedArticle()?.observe(this, Observer { articles ->
-//            articleAdapter = ArticleAdapter(articles, this)
-//            save_list.apply {
-//                setHasFixedSize(true)
-//                layoutManager = viewManager
-//                adapter = articleAdapter
-//            }
-//        })
+        viewModel.getSavedArticle()?.observe(this, Observer { articles ->
+            articleAdapter = ArticleAdapter(articles, this)
+            save_list.apply {
+                setHasFixedSize(true)
+                layoutManager = viewManager
+                adapter = articleAdapter
+            }
+        })
     }
 }
