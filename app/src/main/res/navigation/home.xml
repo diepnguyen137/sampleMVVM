@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/home"
-            app:startDestination="@id/homeFragment">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/home"
+        app:startDestination="@id/homeFragment">
 
-    <fragment android:id="@+id/homeFragment"
-              android:name="com.skg.mybook.view.fragment.HomeFragment"
-              android:label="home_fragment"
-              tools:layout="@layout/home_fragment">
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.skg.mybook.view.fragment.HomeFragment"
+            android:label="Home"
+            tools:layout="@layout/home_fragment">
 
-        <action android:id="@+id/gotoDetail"
-                app:destination="@id/detailFragment"
+        <action
+                android:id="@+id/gotoDetail"
+                app:destination="@+id/detailFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"/>
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                    android:name="screen"
+                    app:argType="string"
+                    android:defaultValue="null" />
+        </action>
+
     </fragment>
-    <fragment android:id="@+id/detailFragment"
-              android:name="com.skg.mybook.view.fragment.DetailFragment"
-              android:label="fragment_detail"
-              tools:layout="@layout/fragment_detail"/>
+    <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.skg.mybook.view.fragment.DetailFragment"
+            android:label="Detail"
+            tools:layout="@layout/fragment_detail" />
 
 </navigation>

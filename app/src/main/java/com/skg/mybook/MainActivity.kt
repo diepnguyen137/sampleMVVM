@@ -10,11 +10,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.util.setupWithNavController
-import com.skg.mybook.viewModel.ArticleSharedViewModel
+import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
 import com.skg.mybook.viewModel.ArticleViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var sharedviewModel: ArticleSharedViewModel
+    private lateinit var sharedviewModel: HomeDetailSharedViewModel
     private lateinit var viewModel: ArticleViewModel
     private var currentNavController: LiveData<NavController>? = null
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         sharedviewModel = this?.run {
-            ViewModelProviders.of(this)[ArticleSharedViewModel::class.java]
+            ViewModelProviders.of(this)[HomeDetailSharedViewModel::class.java]
         }
 
         viewModel = ViewModelProviders.of(this, BaseViewModelFactory {

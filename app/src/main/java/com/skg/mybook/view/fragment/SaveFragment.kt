@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skg.mybook.R
 import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.model.Article
 import com.skg.mybook.view.adapter.ArticleAdapter
+import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
 import com.skg.mybook.viewModel.ArticleViewModel
 import kotlinx.android.synthetic.main.fragment_save.*
 /**
@@ -22,11 +24,16 @@ import kotlinx.android.synthetic.main.fragment_save.*
  */
 class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
     override fun onItemClicked(article: Article) {
+        sharedviewModel.setArticle(article)
+        view?.findNavController()?.navigate(R.id.action_save_to_detail)
+
     }
 
     private lateinit var viewModel: ArticleViewModel
     private lateinit var articleAdapter: ArticleAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var sharedviewModel: HomeDetailSharedViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +48,9 @@ class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
         viewModel = ViewModelProviders.of(this, BaseViewModelFactory {
             ArticleViewModel(activity!!)
         }).get(ArticleViewModel::class.java)
+        sharedviewModel = activity?.run {
+            ViewModelProviders.of(this)[HomeDetailSharedViewModel::class.java]
+        } ?: throw Exception("Invalid Activity")
 
     }
 

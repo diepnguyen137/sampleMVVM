@@ -4,10 +4,21 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/save"
             app:startDestination="@id/saveFragment2">
 
-    <fragment android:id="@+id/saveFragment2" android:name="com.skg.mybook.view.fragment.SaveFragment"
-              android:label="fragment_save" tools:layout="@layout/fragment_save">
-        <action android:id="@+id/action_saveFragment2_to_detailFragment2" app:destination="@id/detailFragment2"/>
+    <fragment android:id="@+id/saveFragment2"
+              android:name="com.skg.mybook.view.fragment.SaveFragment"
+              android:label="Saved"
+              tools:layout="@layout/fragment_save">
+        <action
+                android:id="@+id/action_save_to_detail"
+                app:destination="@id/detailFragment2"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
     </fragment>
-    <fragment android:id="@+id/detailFragment2" android:name="com.skg.mybook.view.fragment.DetailFragment"
-              android:label="fragment_detail" tools:layout="@layout/fragment_detail"/>
+    <fragment android:id="@+id/detailFragment2"
+              android:name="com.skg.mybook.view.fragment.DetailFragment"
+              android:label="Detail"
+              tools:layout="@layout/fragment_detail"/>
 </navigation>

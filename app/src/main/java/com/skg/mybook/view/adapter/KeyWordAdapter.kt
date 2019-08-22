@@ -47,11 +47,11 @@ class KeyWordAdapter(context: Context) : RecyclerView.Adapter<KeyWordAdapter.Key
         @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
         fun bind(keyword: String) {
             dataBinding?.itemContainer?.background = setUpRandomColorBackGround()
-            dataBinding?.keyword = formatStr(keyword)
+            dataBinding?.keyword = countSpace(keyword)
             dataBinding?.executePendingBindings()
         }
 
-        private fun setUpRandomColorBackGround() : GradientDrawable{
+        private fun setUpRandomColorBackGround() : GradientDrawable {
             val r = Random()
             val red = r.nextInt(255 - 0 + 1)+0
             val green = r.nextInt(255 - 0 + 1)+0
@@ -64,7 +64,7 @@ class KeyWordAdapter(context: Context) : RecyclerView.Adapter<KeyWordAdapter.Key
             return gradientDrawable
         }
 
-        private fun formatStr(str: String): String {
+        private fun countSpace(str: String): String {
             var spaces = 0
             for (i in 0 until str.length) {
                 val char = str[i]
