@@ -21,11 +21,9 @@ class ArticleAdapter(articles: List<Article>, listener: ItemClickListener) :
         val binding = HomeListItemBinding.inflate(inflater, parent, false)
         return ArticleViewHolder(binding.itemContainer, binding)
     }
-
     override fun getItemCount(): Int {
         return articles.size
     }
-
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) = holder.bind(articles[position], listener)
 
     class ArticleViewHolder(itemView: View, binding: HomeListItemBinding) : RecyclerView.ViewHolder(itemView) {

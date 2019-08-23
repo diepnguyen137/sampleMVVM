@@ -1,4 +1,4 @@
-package com.skg.mybook.viewModel.sharedViewModel
+package com.skg.mybook.viewmodel.sharedViewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -16,11 +16,12 @@ buildscript {
     ext.archLifecycleVersion = '2.1.0-alpha04'
     ext.androidxArchVersion = '2.0.0'
     ext.coroutines = '1.2.0'
+    ext.fragment_ktx = '1.0.0'
 
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
@@ -37,7 +38,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 

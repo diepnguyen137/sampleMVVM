@@ -3,6 +3,7 @@ package com.skg.mybook.viewModel.sharedViewModel
 import androidx.lifecycle.MutableLiveData
 import com.skg.mybook.model.Article
 import com.skg.mybook.model.ArticleList
+import com.skg.mybook.viewmodel.sharedViewModel.SharedViewModel
 
 class HomeDetailSharedViewModel: SharedViewModel(){
     private val mArticle = MutableLiveData<Article>()

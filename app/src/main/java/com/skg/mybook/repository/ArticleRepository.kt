@@ -1,14 +1,11 @@
 package com.skg.mybook.repository
 
-import android.content.Context
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.skg.mybook.dao.ArticleDao
 import com.skg.mybook.model.Article
-import com.skg.mybook.model.Article1
 import com.skg.mybook.model.ArticleList
-import com.skg.mybook.model.Source
 import com.skg.mybook.service.ArticleService
 import com.skg.mybook.service.RetrofitService
 import retrofit2.Call
