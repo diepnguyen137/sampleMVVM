@@ -10,11 +10,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.util.setupWithNavController
-import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
+import com.skg.mybook.viewModel.sharedViewModel.HomeDetailViewModel
 import com.skg.mybook.viewModel.ArticleViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var sharedviewModel: HomeDetailSharedViewModel
+    private lateinit var sharedviewModel: HomeDetailViewModel
     private lateinit var viewModel: ArticleViewModel
     private var currentNavController: LiveData<NavController>? = null
 
@@ -22,17 +22,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sharedviewModel = this?.run {
-            ViewModelProviders.of(this)[HomeDetailSharedViewModel::class.java]
-        }
-
         viewModel = ViewModelProviders.of(this, BaseViewModelFactory {
             ArticleViewModel(application)
         }).get(ArticleViewModel::class.java)
 
-        viewModel.getAllArticle()?.observe(this, Observer { articles ->
-            sharedviewModel.setArticleList(articles)
-        })
+//        viewModel.getAllArticle()?.observe(this, Observer { articles ->
+//            sharedviewModel.setArticleList(articles)
+//        })
         if (savedInstanceState == null) {
             setUpBottomNavigation()
         } // Else, need to wait for onRestoreInstanceState

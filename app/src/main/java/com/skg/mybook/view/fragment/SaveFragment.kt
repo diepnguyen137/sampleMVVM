@@ -23,8 +23,8 @@ import kotlinx.android.synthetic.main.fragment_save.*
  *
  */
 class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
-    override fun onItemClicked(article: Article) {
-        sharedviewModel.setArticle(article)
+    override fun onItemClicked(position:Int) {
+//        sharedviewModel.setArticle(article)
         view?.findNavController()?.navigate(R.id.action_save_to_detail)
     }
     private lateinit var viewModel: ArticleViewModel
@@ -54,13 +54,13 @@ class SaveFragment : Fragment(), ArticleAdapter.ItemClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewManager = LinearLayoutManager(activity)
-        viewModel.getSavedArticle()?.observe(this, Observer { articles ->
-            articleAdapter = ArticleAdapter(articles, this)
-            save_list.apply {
-                setHasFixedSize(true)
-                layoutManager = viewManager
-                adapter = articleAdapter
-            }
-        })
+//        viewModel.getSavedArticle()?.observe(this, Observer { articles ->
+//            articleAdapter = ArticleAdapter(articles, this)
+//            save_list.apply {
+//                setHasFixedSize(true)
+//                layoutManager = viewManager
+//                adapter = articleAdapter
+//            }
+//        })
     }
 }

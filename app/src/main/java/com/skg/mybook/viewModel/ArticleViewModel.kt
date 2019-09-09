@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 
 class ArticleViewModel(context: Context) : ViewModel() {
     private var repository: ArticleRepository? = null
+    //States && Signal
     private var allArticles: MutableLiveData<ArticleList>? = null
 
     init {
@@ -24,20 +25,22 @@ class ArticleViewModel(context: Context) : ViewModel() {
 
     }
 
-    fun getAllArticle(): MutableLiveData<ArticleList>? {
-        allArticles = repository!!.getAllArticle("us", "business")
-        return allArticles
-    }
+//    fun getAllArticle(): MutableLiveData<ArticleList>? {
+//        allArticles = repository!!.getAllArticle("us", "business")
+//        return allArticles
+//    }
 
     fun getSavedArticle(): LiveData<List<Article>>? {
         return repository!!.getSavedArticle()
     }
     /**
-     * We want the insert() method to be called away from the main thread, so we're launching a new coroutine, based on the
+     * We want the insert() method to be called away from the main thread,
+     * so we're launching a new coroutine, based on the
      * coroutine scope defined previously. Because we're doing a database operation, we're using the IO Dispatcher.
      */
 
-    fun saveArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
+    fun saveArticle(article: Article) =
+        viewModelScope.launch(Dispatchers.IO) {
         repository?.saveAritcle(article)
     }
 }
