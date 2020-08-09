@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skg.mybook.R
 import com.skg.mybook.model.Article
-import com.skg.mybook.util.Constant
+import com.skg.mybook.utils.Constant
 import com.skg.mybook.view.adapter.ArticleAdapter
 import com.skg.mybook.view.adapter.KeyWordAdapter
 import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
@@ -50,7 +50,6 @@ class HomeFragment : Fragment(), ArticleAdapter.ItemClickListener {
         sharedviewModel = activity?.run {
             ViewModelProviders.of(this)[HomeDetailSharedViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
-
     }
 
     @SuppressLint("WrongConstant")

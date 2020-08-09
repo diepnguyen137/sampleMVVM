@@ -21,7 +21,6 @@ class ArticleViewModel(context: Context) : ViewModel() {
             val dao = ArticleRoom.getDatabase(context).articleDao()
             repository = ArticleRepository(dao)
         }
-
     }
 
     fun getAllArticle(): MutableLiveData<ArticleList>? {

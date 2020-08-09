@@ -12,7 +12,7 @@ import com.skg.mybook.R
 import com.skg.mybook.common.BaseViewModelFactory
 import com.skg.mybook.databinding.FragmentDetailBinding
 import com.skg.mybook.model.Article
-import com.skg.mybook.util.Constant
+import com.skg.mybook.utils.Constant
 import com.skg.mybook.viewModel.ArticleViewModel
 import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
 import com.skg.mybook.viewmodel.sharedViewModel.SaveDetailSharedViewModel

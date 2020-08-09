@@ -9,9 +9,9 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.skg.mybook.common.BaseViewModelFactory
-import com.skg.mybook.util.setupWithNavController
-import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
+import com.skg.mybook.utils.setupWithNavController
 import com.skg.mybook.viewModel.ArticleViewModel
+import com.skg.mybook.viewModel.sharedViewModel.HomeDetailSharedViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sharedviewModel: HomeDetailSharedViewModel
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         })
         if (savedInstanceState == null) {
             setUpBottomNavigation()
-        } // Else, need to wait for onRestoreInstanceState
+        }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {

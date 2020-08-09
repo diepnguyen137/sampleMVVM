@@ -1,4 +1,4 @@
-package com.skg.mybook.util
+package com.skg.mybook.utils
 
 import android.view.View
 import android.widget.ImageView

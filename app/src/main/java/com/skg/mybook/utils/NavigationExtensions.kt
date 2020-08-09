@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skg.mybook.util
+package com.skg.mybook.utils
 
 import android.content.Intent
 import android.util.SparseArray

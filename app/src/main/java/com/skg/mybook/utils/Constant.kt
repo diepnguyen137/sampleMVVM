@@ -1,4 +1,4 @@
-package com.skg.mybook.util
+package com.skg.mybook.utils
 
 class Constant{
     companion object {
